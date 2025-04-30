@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "E:/html"
+		},
+		{
+			"path": "E:/projet.1"
+		},
+		{
+			"path": "E:/pyhon"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "html"
+	}
+}
