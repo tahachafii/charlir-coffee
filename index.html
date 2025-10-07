@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="bootstrap.min.css">
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 *,
 *::after,
@@ -25,7 +25,7 @@
   margin: 0;
 }
 
-.html {
+html {
   font-size: 62.5%;
 }
 
@@ -52,17 +52,17 @@ body {
   outline: none;
   margin-top: 1em;
   text-transform: uppercase;
-  font-weight: small;
+  font-weight: 500; /* Corrigé de 'small' */
 }
 
 .btn-primary {
   color: #fff;
   background: #e5ff00;
-  box-shadow: 0px 6px 10px #d0ff00;
+  box-shadow: 0px 6px 10px #fffb00;
 }
 
 .btn-primary:hover {
-  background: #aaff00;
+  background: #eeff00;
   transition: background 0.3s ease-in-out;
 }
 
@@ -105,13 +105,13 @@ body {
 
 .menu-items a {
   text-decoration: none;
-  color: #d0ff00;
+  color: #f2ff00;
   font-weight: 500;
   transition: color 0.3s ease-in-out;
 }
 
 .menu-items a:hover {
-  color: #eeff00;
+  color: #fbff00;
   transition: color 0.3s ease-in-out;
 }
 
@@ -119,7 +119,7 @@ body {
   order: 1;
   font-size: 2.3rem;
   margin-bottom: 0.5rem;
-  color: rgb(238, 255, 0);
+  color: rgb(251, 255, 0);
 }
 
 .showcase-area {
@@ -139,6 +139,8 @@ body {
   justify-content: center;
   height: 100%;
   font-size: 1.6rem;
+  text-align: center;
+  padding: 0 1rem; /* Ajout pour éviter le débordement sur mobile */
 }
 
 .main-title {
@@ -240,6 +242,8 @@ body {
 .img-container {
   margin: 0 1rem;
   position: relative;
+  flex: 1;
+  max-width: 33%;
 }
 
 .img-content {
@@ -292,7 +296,7 @@ body {
 
 .food-menu-heading {
   text-align: center;
-  font-size: 3.rem;
+  font-size: 3rem; /* Corrigé de '3.rem' */
   font-weight: 400;
   color: #666;
 }
@@ -301,7 +305,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 0px 0px 0px 0px;
-  size: 20%;
+  justify-content: center; /* Centrer les items sur mobile */
+  gap: 2rem; /* Espace entre items pour éviter le chevauchement */
 }
 
 .food-menu-container img {
@@ -311,17 +316,22 @@ body {
   border-radius: 100%;
   object-fit: cover;
   object-position: center;
+  max-width: 100%; /* Assurer la responsivité des images */
+  height: auto;
 }
 
 .food-menu-item {
   display: flex;
-  flex: 1 1 600px;
+  flex: 1 1 300px; /* Réduit de 600px à 300px pour mieux s'adapter au mobile */
   justify-content: space-evenly;
   margin-bottom: 1rem;
+  max-width: 100%;
 }
 
 .food-description {
   margin: auto 1rem;
+  flex: 1;
+  text-align: center; /* Centrer le texte pour cohérence */
 }
 
 .font-title {
@@ -359,6 +369,7 @@ body {
   justify-content: space-between;
   font-size: 1.4rem;
   padding: 1rem;
+  gap: 1rem; /* Espace entre témoignages */
 }
 
 .testimonial-box .checked {
@@ -373,6 +384,8 @@ body {
 .testimonial-box {
   text-align: center;
   padding: 1rem;
+  flex: 1;
+  max-width: 100%;
 }
 
 .customer-photo img {
@@ -383,6 +396,7 @@ body {
   object-position: center;
   border-radius: 50%;
   margin: auto;
+  max-width: 100%; /* Responsif */
 }
 
 
@@ -583,12 +597,86 @@ body {
 
   .img-container {
     margin: 0;
+    max-width: 100%;
+  }
+
+  /* Amélioration pour about sur mobile */
+  .about-wrapper {
+    flex-direction: column;
+  }
+
+  .about-img,
+  .about-text {
+    transform: none;
+    animation: none;
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .about-img img {
+    height: 300px; /* Réduire hauteur sur mobile pour éviter déformation */
+  }
+
+  /* Menu sur mobile */
+  .food-menu-item {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .food-menu-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .food-menu-container img {
+    width: 150px;
+    height: 150px; /* Réduire taille images pour mobile sans déformation */
+  }
+
+  /* Testimonials sur mobile */
+  .testimonial-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial-box {
+    max-width: 300px;
+    margin-bottom: 2rem;
+  }
+
+  /* Contact sur mobile */
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-img,
+  .form-container {
+    width: 100%;
+  }
+
+  .contact-img img {
+    height: 250px; /* Réduire hauteur pour mobile */
+  }
+
+  /* Showcase sur mobile */
+  .showcase-area {
+    height: 60vh; /* Réduire hauteur pour éviter scroll excessif */
+    background-position: center;
+  }
+
+  .showcase-container {
+    font-size: 1.4rem;
+  }
+
+  .main-title {
+    font-size: 2.5rem; /* Ajuster taille titre */
   }
 }
 
 @media (max-width: 500px) {
   html {
-    font-size: 65%;
+    font-size: 55%; /* Réduire base font-size pour petits écrans */
   }
 
   .navbar .menu-items li{
@@ -611,6 +699,7 @@ body {
 
   .form-container {
     width: 90%;
+    padding: 1rem;
   }
 
   .contact-container {
@@ -619,8 +708,8 @@ body {
   }
 
   .contact-img {
-    width: 90%;
-    margin: 3rem auto;
+    width: 100%;
+    margin: 3rem auto 0;
   }
 
   .logo {
@@ -634,6 +723,19 @@ body {
     margin-bottom: 2.5rem;
     font-size: 1.8rem;
     font-weight: 500;
+  }
+
+  /* Ajustements supplémentaires pour très petits écrans */
+  #food h2,
+  .food-menu-heading,
+  .testimonial-title,
+  .form-container h2 {
+    font-size: 2rem; /* Réduire tailles de titres */
+  }
+
+  .btn {
+    padding: 0.8em 1.2em;
+    font-size: 1rem;
   }
 }
 
@@ -652,128 +754,239 @@ body {
     height: 50vmax;
   }
 }
-.icons ion-icon{
-    color: #e2e200;
-    font-size: 30px;
-    padding-left: 14px;
-    padding-top: 5px;
-    transition: 0.3s ease;
-    text-align: right;
-    transform: translate(-1000%,40%);
-   
-}
-button{
-    width:300px;
-    height:50px;
-    background: linear-gradient(to left top, #060003 50%, #f6ff00 50%);
-    border-style: none;
-    color:#fff;
-    font-size: 23px;
-    letter-spacing: 3px;
-    font-family: 'Lato';
-    font-weight: 600;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    padding: 0px;
-    overflow: hidden;
-    transition: all .5s;
-    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
-    transform: translate(40% ,40%);
-}
-button span{
-    position: absolute;
-    display: block;
-}
-button span:nth-child(1){
-    height: 3px;
-    width:200px;
-    top:0px;
-    left:-200px;
-    background: linear-gradient(to right, rgb(0, 0, 0), #ffd500);
-    border-top-right-radius: 1px;
-    border-bottom-right-radius: 1px;
-    animation: span1 2s linear infinite;
-    animation-delay: 1s;
+
+.icons ion-icon {
+  color: #e2e200;
+  font-size: 30px;
+  padding-left: 14px;
+  padding-top: 5px;
+  transition: 0.3s ease;
+  text-align: right;
+  transform: translate(-1000%, 40%);
 }
 
-@keyframes span1{
-    0%{
-        left:-200px
-    }
-    100%{
-        left:200px;
-    }
-}
-button span:nth-child(2){
-    height: 70px;
-    width: 3px;
-    top:-70px;
-    right:0px;
-    background: linear-gradient(to bottom, rgb(0, 0, 0), #ffd500);
-    border-bottom-left-radius: 1px;
-    border-bottom-right-radius: 1px;
-    animation: span2 2s linear infinite;
-    animation-delay: 2s;
-}
-@keyframes span2{
-    0%{
-        top:-70px;
-    }
-    100%{
-        top:70px;
-    }
-}
-button span:nth-child(3){
-    height:3px;
-    width:200px;
-    right:-200px;
-    bottom: 0px;
-    background: linear-gradient(to left, rgb(0, 0, 0), #ffd500);
-    border-top-left-radius: 1px;
-    border-bottom-left-radius: 1px;
-    animation: span3 2s linear infinite;
-    animation-delay: 3s;
-}
-@keyframes span3{
-    0%{
-        right:-200px;
-    }
-    100%{
-        right: 200px;
-    }
+button {
+  width: 300px;
+  height: 50px;
+  background: linear-gradient(to left top, #060003 50%, #f6ff00 50%);
+  border-style: none;
+  color: #fff;
+  font-size: 23px;
+  letter-spacing: 3px;
+  font-family: 'Lato';
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  padding: 0px;
+  overflow: hidden;
+  transition: all .5s;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+  transform: translate(40%, 40%);
 }
 
-button span:nth-child(4){
-    height:70px;
-    width:3px;
-    bottom:-70px;
-    left:0px;
-    background: linear-gradient(to top, rgb(0, 0, 0), #ffd500);
-    border-top-right-radius: 1px;
-    border-top-left-radius: 1px;
-    animation: span4 2s linear infinite;
-    animation-delay: 4s;
+button span {
+  position: absolute;
+  display: block;
 }
-@keyframes span4{
-    0%{
-        bottom: -70px;
-    }
-    100%{
-        bottom:70px;
-    }
-} 
 
-button:hover{
-    transition: all .5s;
-    transform: rotate(-3deg) scale(1.1);
-    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+button span:nth-child(1) {
+  height: 3px;
+  width: 200px;
+  top: 0px;
+  left: -200px;
+  background: linear-gradient(to right, rgb(0, 0, 0), #ffd500);
+  border-top-right-radius: 1px;
+  border-bottom-right-radius: 1px;
+  animation: span1 2s linear infinite;
+  animation-delay: 1s;
 }
-button:hover span{
-    animation-play-state: paused;
+
+@keyframes span1 {
+  0% {
+    left: -200px
+  }
+  100% {
+    left: 200px;
+  }
 }
-.showcase-container p{
+
+button span:nth-child(2) {
+  height: 70px;
+  width: 3px;
+  top: -70px;
+  right: 0px;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), #ffd500);
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
+  animation: span2 2s linear infinite;
+  animation-delay: 2s;
+}
+
+@keyframes span2 {
+  0% {
+    top: -70px;
+  }
+  100% {
+    top: 70px;
+  }
+}
+
+button span:nth-child(3) {
+  height: 3px;
+  width: 200px;
+  right: -200px;
+  bottom: 0px;
+  background: linear-gradient(to left, rgb(0, 0, 0), #ffd500);
+  border-top-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+  animation: span3 2s linear infinite;
+  animation-delay: 3s;
+}
+
+@keyframes span3 {
+  0% {
+    right: -200px;
+  }
+  100% {
+    right: 200px;
+  }
+}
+
+button span:nth-child(4) {
+  height: 70px;
+  width: 3px;
+  bottom: -70px;
+  left: 0px;
+  background: linear-gradient(to top, rgb(0, 0, 0), #ffd500);
+  border-top-right-radius: 1px;
+  border-top-left-radius: 1px;
+  animation: span4 2s linear infinite;
+  animation-delay: 4s;
+}
+
+@keyframes span4 {
+  0% {
+    bottom: -70px;
+  }
+  100% {
+    bottom: 70px;
+  }
+}
+
+button:hover {
+  transition: all .5s;
+  transform: rotate(-3deg) scale(1.1);
+  box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+}
+
+button:hover span {
+  animation-play-state: paused;
+}
+
+.showcase-container p {
   color: yellow;
+}
+
+/* Ajouts pour la responsivité des icônes et boutons sur mobile */
+@media (max-width: 768px) {
+  .icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .icons ion-icon {
+    font-size: 24px; /* Réduire taille des icônes sur mobile */
+    padding-left: 10px;
+    padding-top: 0;
+    transform: none; /* Supprimer la transformation pour visibilité */
+    margin: 0 10px; /* Espacement horizontal pour alignement */
+  }
+
+  button {
+    width: 100%; /* Bouton responsive : pleine largeur sur mobile */
+    max-width: 250px; /* Limite max pour éviter trop large */
+    height: 45px;
+    font-size: 18px; /* Réduire taille police */
+    letter-spacing: 2px;
+    transform: none; /* Supprimer translation pour centrage naturel */
+    margin: 0 auto; /* Centrer le bouton */
+    display: block;
+  }
+
+  button span:nth-child(1),
+  button span:nth-child(3) {
+    width: 150px; /* Ajuster largeur des spans pour bouton plus petit */
+  }
+
+  button span:nth-child(2),
+  button span:nth-child(4) {
+    height: 55px; /* Ajuster hauteur des spans */
+  }
+
+  @keyframes span1 {
+    0% { left: -150px; }
+    100% { left: 150px; }
+  }
+
+  @keyframes span3 {
+    0% { right: -150px; }
+    100% { right: 150px; }
+  }
+
+  @keyframes span2 {
+    0% { top: -55px; }
+    100% { top: 55px; }
+  }
+
+  @keyframes span4 {
+    0% { bottom: -55px; }
+    100% { bottom: 55px; }
+  }
+}
+
+@media (max-width: 500px) {
+  .icons ion-icon {
+    font-size: 20px; /* Encore plus petit sur très petits écrans */
+    margin: 0 8px;
+  }
+
+  button {
+    height: 40px;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  button span:nth-child(1),
+  button span:nth-child(3) {
+    width: 120px;
+  }
+
+  button span:nth-child(2),
+  button span:nth-child(4) {
+    height: 50px;
+  }
+
+  @keyframes span1 {
+    0% { left: -120px; }
+    100% { left: 120px; }
+  }
+
+  @keyframes span3 {
+    0% { right: -120px; }
+    100% { right: 120px; }
+  }
+
+  @keyframes span2 {
+    0% { top: -50px; }
+    100% { top: 50px; }
+  }
+
+  @keyframes span4 {
+    0% { bottom: -50px; }
+    100% { bottom: 50px; }
+  }
 }
     </style>
   </head>
